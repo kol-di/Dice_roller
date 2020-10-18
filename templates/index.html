@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type ="text/css">
+    div.dice
+    {
+        float:left;
+        width:32px;
+        background:#555;
+        padding:10px;
+        font-size:24px;
+        text-align:center;
+        margin:5px;
+    }
+    </style>
+    <style type ="text/css">
+    body
+    {
+        margin: 0 auto;
+        background: #2a4f16;
+    }
+    </style>
+    <script>
+    function getRadioValue(groupName) {
+        var radios = radioGroup.elements[groupName];
+        window.rdValue;
+        for (var i=0; i<radios.length; i++) {
+            var someRadio = radios[i];
+            if (someRadio.checked) {
+                rdValue = someRadio.value;
+                break;
+            }
+        }
+    }
+    </script>
+    <script>
+    function rollDice()
+    {
+        getRadioValue('faces')
+        var die1 = document.getElementById("die1");
+        var d1 = Math.floor(Math.random() * rdValue) + 1;
+        var status = document.getElementById("status");
+        die1.innerHTML = d1;
+        status.innerHTML = "You rolled "+d1+" out of "+rdValue+"."
+    }
+    </script>
+</head>
+
+
+<body>
+<form name="radioGroup">
+    <p><b><h2>Number of faces of a die</h2></b></p>
+    <input type="radio" id="contactChoice1" name="faces" value=6 checked> <label for="contactChoice1">6</label> <Br>
+    <input type="radio" id="contactChoice2" name="faces" value=8> <label for="contactChoice2">8</label> <Br>
+    <input type="radio" id="contactChoice3" name="faces" value=12> <label for="contactChoice3">12</label> <Br>
+    <input type="radio" id="contactChoice4" name="faces" value=16> <label for="contactChoice4">16</label> <Br>
+    <input type="radio" id="contactChoice5" name="faces" value=20> <label for="contactChoice5">20</label> <Br>
+</form>
+<div id="die1" class="dice">0</div>
+<button onclick="rollDice()">Roll Dice</button>
+<h2 id ="status" style="clear:left;" align="center"></h2>
+</body>
+</html>
